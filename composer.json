@@ -1,0 +1,17 @@
+{
+    "name": "youcode/mvc",
+    "description": "hello",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "MBAREK0",
+            "email": "elaadraouimbarek2023@gmail.com"
+        }
+    ],
+    "require": {}
+}
