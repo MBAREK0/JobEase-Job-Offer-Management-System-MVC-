@@ -7,7 +7,7 @@ use App\Controllers\Login;
 use App\Controllers\Home;
 use App\Controllers\Search;
 use App\Controllers\Dashboard;
-use App\Controllers\ControllerOffers;
+use App\Controllers\UpdateOffers;
 
 
 
@@ -37,10 +37,11 @@ switch ($route) {
         $controller = new Search();
         $controller->search();
         break;
-    case 'ControllerOffers':
-        $controller = new ControllerOffers();
-        $controller->deleteOffer();
+    case 'UpdateOffers':
+        $controller = new UpdateOffers();
+        $controller->updateOffers();
         break;
+
     
    
     default:

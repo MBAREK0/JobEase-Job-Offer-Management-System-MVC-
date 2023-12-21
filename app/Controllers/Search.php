@@ -43,7 +43,7 @@ use App\Models\Offers;
                                     <?php 
                                   
                                     if($_SESSION['role'] === 'admin'){
-                                        echo'<a href="controls/updateoffer.php?upofferid='.$offer['id'] .' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>update</li></a>';
+                                        echo'<a href="?route=UpdateOffers&upofferid='.$offer['id'] .' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>update</li></a>';
                                         echo'<a href="?route=Dashboard&offerid='.$offer['id'] .' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>delete.</li></a>';
                                     
                                     }
