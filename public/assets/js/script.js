@@ -1,15 +1,18 @@
-// admin task
+   
+
 const addTask = document.getElementById('add_admin_task');
+
 const modal = document.querySelector('.modal');
 addTask.addEventListener('click', () => {
-  modal.style.display = 'flex'
+  console.log('clicked');
+  modal.style.display = 'flex';
   addAdminTask();
 })
 function addAdminTask() {
   const form = document.getElementById("forms");
-  const save = document.querySelector('.save')
-  const annuler = document.querySelector('.annuler')
-  console.log(form)
+  const save = document.querySelector('.save');
+  // const annuler = document.querySelector('.annuler');
+  console.log(form);
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     const taskDesc = document.querySelector('.task-desc').value;
@@ -30,7 +33,6 @@ function addAdminTask() {
       });
     }
   })
-  annuler.addEventListener('click', () => {
-    modal.style.display = 'none'
-  })
+
 }
+

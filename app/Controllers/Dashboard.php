@@ -28,9 +28,11 @@ use App\Models\Offers;
                     move_uploaded_file($_FILES['file']['tmp_name'],$filePath);
     
                     }
+                }else {
+                    $filename="articles.svg";
                 }
                 $database = new Offers();
-    
+
                 if ($database->insertJobOffer($title, $description, $company, $location,$filename)) {
 
                     

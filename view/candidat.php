@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="assets/dashboard.css">
+    <link rel="stylesheet" href="assets/styles/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -143,7 +143,7 @@
                           
                             <td>
                                <a href="../../controls/userinfo.php?deUsId=<?php echo $app['user_id'] ;?>&deJbId=<?php echo $app['job_offer_id'] ;?>" ><img class="delet_user "  src="img/user-x.svg" alt="" style="margin:1rem;"></a>
-                                <button onclick=" status(<?php echo $app['user_id'] ;?>,<?php echo $app['job_offer_id'] ;?>)" style="background-color:green; color:white;" id="accept-btn">accept</button>
+                                <button onclick="statusUpdate(<?php echo $app['user_id'] ;?>,<?php echo $app['job_offer_id'] ;?>)" style="background-color:green; color:white;" id="accept-btn">accept</button>
                             </td>
                         </tr>
                        <?php endforeach;?>
@@ -208,27 +208,14 @@
                 </div>
         </div>
     </div>
-    <script>
-        function status(usid,jbid){
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'index.php?route=Condidat&upUsId=' + usid +'&upJbId='+jbid, true);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4 && xhr.status == 200) {
-					var btn = document.getElementById('accept-btn')	;
-                    btn.style="background-color:gray;"	;	
-			        console.log(xhr.responseText);
-				}
-				};
-				xhr.send();
-				
-				}
-                
-    </script>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-        <script src="dashboard.js"></script>
-        <script src="agents.js"></script>
+        <script src="assets/js/dashboard.js"></script>
+        <script src="assets/js/agents.js"></script>
+        <script src="/assets/js/script.js"></script>
+        <script src="/assets/js/job.js"></script>
 </body>
 
 </html>

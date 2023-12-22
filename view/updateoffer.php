@@ -1,5 +1,10 @@
 
 <?php
+      if( $_SESSION['email'] == NULL  ){
+            header("Location:?route=Login");
+            exit();
+      }
+
     use App\Models\Offers;
     $Offers = new Offers();
     $jobOffers = $Offers->getJobOffer($_GET['upofferid']);

@@ -51,8 +51,6 @@ switch ($route) {
         $controller = new Logout();
         $controller->logout();
             break;
-
-    
    
     default:
         // Handle 404 or redirect to the default route

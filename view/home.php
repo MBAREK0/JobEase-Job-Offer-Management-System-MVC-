@@ -100,7 +100,7 @@ if( $_SESSION['email'] == NULL  ){
 				<input type="text" name="keywords"  id="keywords" placeholder="Keywords,location,company..">
 			</div>
 			
-			<button type="submit" onclick="search()" class="btn btn-primary mb-2">Search</button>
+			<button type="submit" onclick="searchKey()" class="btn btn-primary mb-2">Search</button>
 			</div>
 		
 	</section>
@@ -123,52 +123,14 @@ if( $_SESSION['email'] == NULL  ){
 	<footer>
 		<p>© 2023 JobEase </p>
 	</footer> 
-	<script>
-
-function showNontification() {
-    var Nontif = document.getElementById('N-card');
-
-    if (Nontif.style.display == "block") {
-        Nontif.style.display = "none";
-    } else {
-        Nontif.style.display = "block";
-    }
-}
-
-        function search() {
-			var searchTerm = document.getElementById('keywords').value;
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'index.php?route=Search&term=' + searchTerm, true);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4 && xhr.status == 200) {
-				document.getElementById('result').innerHTML = xhr.responseText;
-			
-				}
-				};
-				xhr.send();
-				}
-				 search();
-
-		function apply(id){
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'index.php?route=Dashboard&applyid=' + id, true);
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4 && xhr.status == 200) {
-								
-			        console.log(xhr.responseText);
-					alert("apply secces");
-				}
-				};
-				xhr.send();
-				
-				}
-		
-
-    </script>
+	
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="/assets/js/job.js"></script>
+<script> searchKey();</script>
 
 </html>
