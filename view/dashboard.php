@@ -2,15 +2,15 @@
 <?php 
 
 
+use App\Models\Offers; 
 
-session_start();
-// if( $_SESSION['email'] == NULL  ){
-// 	header("Location:login.php");
-// 	exit();
-// }
+if( $_SESSION['email'] == NULL  ){
+    header("Location:?route=Login");
+	exit();
+}
 
-// $NONtif =new DatabaseOffer;
-// $get_NONtif =$NONtif->getAdminNontification();
+$NONtif =new Offers;
+$get_NONtif =$NONtif->getAdminNontification();
 
 ?>
 <!DOCTYPE html>
@@ -34,16 +34,16 @@ session_start();
             <div class="h-100">
                 <div class="sidebar_logo d-flex align-items-end">
                     
-                    <a href="dashboard.php" class="nav-link text-white-50">JobEase</a>
+                    <a href="index.php?route=Dashboard" class="nav-link text-white-50">JobEase</a>
                     <img class="close align-self-start" src="img/close.svg" alt="icon">
                 </div>
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                        <a href="dashboard.php" class="sidebar_link"> <img src="img/1. overview.svg" alt="icon">Overview</a>
+                        <a href="index.php?route=Dashboard" class="sidebar_link"> <img src="img/1. overview.svg" alt="icon">Overview</a>
                     </li>
                     <li class="sidebar_item">
-                        <a href="candidat.php" class="sidebar_link"> <img src="img/agents.svg" alt="icon">Candidat</a>
+                        <a href="?route=Condidat" class="sidebar_link"> <img src="img/agents.svg" alt="icon">Candidat</a>
                     </li>
                     <li class="sidebar_item">
                         <a href="?route=Home" class="sidebar_link"> <img src="img/task.svg" alt="icon">Offres</a>
@@ -52,7 +52,7 @@ session_start();
 
                 </ul>
                 <div class="line"></div>
-                <a href="../logout.php" class="sidebar_link"><img src="img/settings.svg" alt="">logout</a>
+                <a href="index.php?route=Logout" class="sidebar_link"><img src="img/settings.svg" alt="">logout</a>
 
 
             </div>
@@ -78,13 +78,13 @@ session_start();
                             <div class="list-group-item px-3 ">
                             
                     
-                                <!-- <?php  //foreach($get_NONtif as $app):?>
+                                <?php  foreach($get_NONtif as $app):?>
                                 <div class="card-body">
                                     <h5 class="card-title">new applyed</h5>
                                     <p class="card-text mb-3">the condidate  <strong><?php echo $app['username'] ;?> </strong> applyed in the job offer <strong><?php echo $app['title'] ;?> </strong> use condidat page for see more </p>
                                   
                                 </div>
-                                <?php //endforeach;?> -->
+                                <?php endforeach;?> 
                             </div>
                           
                            

@@ -48,7 +48,23 @@ use App\Models\Offers;
                  exit();
                }
             }
-// // // // // // // // // // // // // // // 
+            // // // // // // // // // // // // // // //
+            if(isset($_GET['applyid'])){
+                
+                $user_id = $_SESSION['userid'];
+                $job_id  =$_GET['applyid'];
+                $app_offer = new Offers();
+
+                if ($app_offer->applyOffer( $user_id, $job_id)) {
+                    echo "apply successfully.";
+                } else {
+                    echo "Error applay";
+                }
+
+                $database->closeConnection();
+                        
+            }
+
 
         
             

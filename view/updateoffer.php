@@ -2,7 +2,6 @@
 <?php
     use App\Models\Offers;
     $Offers = new Offers();
-
     $jobOffers = $Offers->getJobOffer($_GET['upofferid']);
 ?>    
 <!DOCTYPE html>

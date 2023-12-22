@@ -11,7 +11,7 @@ use App\Models\Offers;
             if(isset($_GET["term"])) {
                 $search = $_GET["term"];
                 $jobOffers = $S_Offer->searchOffer($search);
-                session_start();
+                 
                 
                    
             ?>

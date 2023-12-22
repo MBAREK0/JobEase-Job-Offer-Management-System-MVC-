@@ -1,5 +1,5 @@
 <?php
-
+ session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\Register;
@@ -8,13 +8,15 @@ use App\Controllers\Home;
 use App\Controllers\Search;
 use App\Controllers\Dashboard;
 use App\Controllers\UpdateOffers;
+use App\Controllers\Condidat;
+use App\Controllers\Logout;
 
 
 
 
 $route = isset($_GET['route']) ? $_GET['route'] : 'Home';
 
-
+                                                         
 switch ($route) {
     case 'Home':
         $controller = new Home();
@@ -41,6 +43,14 @@ switch ($route) {
         $controller = new UpdateOffers();
         $controller->updateOffers();
         break;
+    case 'Condidat':
+        $controller = new Condidat();
+        $controller->condidat();
+        break;
+    case 'Logout':
+        $controller = new Logout();
+        $controller->logout();
+            break;
 
     
    
@@ -49,8 +59,6 @@ switch ($route) {
         header('HTTP/1.0 404 Not Found');
         exit('Page not found');
 }
-
-
 
 
 ?>

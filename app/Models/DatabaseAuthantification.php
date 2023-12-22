@@ -55,7 +55,7 @@ class DatabaseAuthantification  {
     
             if ($result && $result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                session_start();
+                 
                 $this->role =$row['role'];
             
                 $_SESSION['email'] = $row['useremail'] ;

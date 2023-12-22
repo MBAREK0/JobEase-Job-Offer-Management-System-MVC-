@@ -1,12 +1,10 @@
 <!--  Note \/ -->
 <?php 
 
-session_start();
-
-// if( $_SESSION['email'] == NULL  ){
-// 	header("Location:jobease-php-oop-master/login.php");
-// 	exit();
-// }
+if( $_SESSION['email'] == NULL  ){
+	header("Location:?route=Login");
+	exit();
+}
 
 # you should be make a soulition for search-home ?
 # => make an div.offer inside it show the offers and make it disply none when the user clicked in Search btn
@@ -51,12 +49,13 @@ session_start();
 						<li class="nav-item active">
 							<a class="nav-link" href="#">Home</a>
 						</li>
-
+						<?php if($_SESSION['role'] === 'candidate'){?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="Nontification"  onclick="showNontification()"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Nontification
 							</a>
 						</li>
+						<?php }?>
 						<?php if($_SESSION['role'] === 'admin'){?>
 							<li class="nav-item">
 							<a class="nav-link" href="index.php?route=Dashboard">Dachboard</a>
@@ -69,7 +68,7 @@ session_start();
 							<a class="nav-link" href="index.php?route=Login">Login</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="jobease-php-oop-master/logout.php">logout</a>
+							<a class="nav-link" href="index.php?route=Logout">logout</a>
 						</li>
 					</ul>
 				</div>
@@ -80,13 +79,14 @@ session_start();
 	<div id="N-card"  style ="position :absolute; right:80px; display:none ; width:400px; background-color:#2a2b81 ; z-index:100; padding:10px; top:140px;">
 	<h4 style="text-align:center; color:#dedede;" class ="mb-5">====== Nontification ======</h4>
 		<?php 
-			// $N_Offer = new DatabaseOffer;
-			// $N_jobOffers = $N_Offer->getUserNontification($_SESSION['userid']);
+			    use App\Models\Offers;
+			 $N_Offer = new Offers;
+			 $N_jobOffers = $N_Offer->getUserNontification($_SESSION['userid']);
 
-			// foreach($N_jobOffers as $Nonti):
-			// 	echo '<p style="color:#dedede;">Congradulation  your Offer Job '.$Nonti['title'].'  On '.$Nonti['company'].' Is accepted.</p>';
-			// 	echo'  <hr style="border-color: gray;">';
-			// endforeach;
+			foreach($N_jobOffers as $Nonti):
+				echo '<p style="color:#dedede;">Congradulation  your Offer Job '.$Nonti['title'].'  On '.$Nonti['company'].' Is accepted.</p>';
+				echo'  <hr style="border-color: gray;">';
+			endforeach;
 		
 		?>
 
@@ -151,11 +151,12 @@ function showNontification() {
 
 		function apply(id){
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', 'controls/userinfo.php?applyid=' + id, true);
+			xhr.open('GET', 'index.php?route=Dashboard&applyid=' + id, true);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
 								
 			        console.log(xhr.responseText);
+					alert("apply secces");
 				}
 				};
 				xhr.send();
