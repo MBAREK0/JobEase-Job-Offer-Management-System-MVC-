@@ -10,7 +10,8 @@ use App\Models\Offers;
                 $description = $_POST['description'];
                 $company = $_POST['company'];
                 $location = $_POST['Location'];
-            
+                $img=$_POST['img'];
+              
            
                 $folder = "img/";
                 
@@ -27,6 +28,8 @@ use App\Models\Offers;
                           
                         }
                     }
+                }else {
+                    $filename=$_GET['updateimg'];
                 }
             
                 $updateOffer = new Offers();

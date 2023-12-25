@@ -152,7 +152,7 @@ class Offers {
         } 
         // ......................................................deleteStatus
         public function deleteStatus($usid, $jbid){
-            $delete_app_sql = "DELETE FROM `job_applications`  WHERE `user_id`='$usid' AND `job_offer_id`='$jbid'";
+            $delete_app_sql = "DELETE FROM `job_applications` WHERE `user_id`='$usid' AND `job_offer_id`='$jbid'";
     
             $delete_app_result = $this->db->query($delete_app_sql);
             if ($delete_app_result){

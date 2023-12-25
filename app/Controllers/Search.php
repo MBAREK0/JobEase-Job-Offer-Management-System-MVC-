@@ -20,6 +20,7 @@ use App\Models\Offers;
                             <a class="postcard__img_link" href="#">
                                 <img class="postcard__img" src="img/<?php echo $offer['img']; ?>" alt="Image Title" />
                             </a>
+                          
                             <div class="postcard__text t-dark">
                                 <h3 class="postcard__title green"><a href="#"><?php echo $offer['title']; ?></a></h3>
                                 <div class="postcard__subtitle small">
@@ -43,7 +44,7 @@ use App\Models\Offers;
                                     <?php 
                                   
                                     if($_SESSION['role'] === 'admin'){
-                                        echo'<a href="?route=UpdateOffers&upofferid='.$offer['id'] .' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>update</li></a>';
+                                        echo'<a href="?route=UpdateOffers&upofferid='.$offer['id'] .'&updateimg='.$offer['img'].' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>update</li></a>';
                                         echo'<a href="?route=Dashboard&offerid='.$offer['id'] .' " ><li class="tag__item"><i class="fas fa-clock mr-2"></i>delete.</li></a>';
                                     
                                     }

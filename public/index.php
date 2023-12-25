@@ -13,7 +13,6 @@ use App\Controllers\Logout;
 
 
 
-
 $route = isset($_GET['route']) ? $_GET['route'] : 'Home';
 
                                                          
@@ -53,11 +52,10 @@ switch ($route) {
             break;
    
     default:
-        // Handle 404 or redirect to the default route
+
         header('HTTP/1.0 404 Not Found');
         exit('Page not found');
 }
-
 
 ?>
 </br>

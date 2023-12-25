@@ -18,6 +18,8 @@ class Condidat{
     } else {
         echo "Error updating job offer.";
     }
+    // ===========================================delete status 
+    
 
    
     }

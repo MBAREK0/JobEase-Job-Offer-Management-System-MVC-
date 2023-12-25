@@ -4,6 +4,7 @@ use App\Models\Offers;
     class Dashboard{
         public function dashboard(){
 
+    // ::::::::::::::::::::::::::::::::::::::::::::::::::::: add offers
 
             
             if ( isset($_POST['addoffersubmit'])) {
@@ -50,7 +51,7 @@ use App\Models\Offers;
                  exit();
                }
             }
-            // // // // // // // // // // // // // // //
+            // ::::::::::::::::::::::::::::::::::::::::::::::::::::: applyOffer
             if(isset($_GET['applyid'])){
                 
                 $user_id = $_SESSION['userid'];
@@ -67,7 +68,22 @@ use App\Models\Offers;
                         
             }
 
-
+            // ::::::::::::::::::::::::::::::::::::: delete status 
+            if(isset($_GET['deUsId']) && isset($_GET['deJbId'])){
+                $user=$_GET['deUsId'];
+                $job=$_GET['deJbId'];
+                 
+                $deleteStatus = new Offers();
+        
+            if ($deleteStatus->deleteStatus($user,$job)) {
+                 header("Location:index.php?route=Condidat");
+                 exit();
+         
+            } else {
+                echo "Error deleted job offer.";
+            }
+          
+            }
         
             
             require_once __DIR__. '/../../view/dashboard.php';

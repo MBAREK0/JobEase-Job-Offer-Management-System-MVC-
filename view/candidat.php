@@ -142,7 +142,8 @@
                             </td>
                           
                             <td>
-                               <a href="../../controls/userinfo.php?deUsId=<?php echo $app['user_id'] ;?>&deJbId=<?php echo $app['job_offer_id'] ;?>" ><img class="delet_user "  src="img/user-x.svg" alt="" style="margin:1rem;"></a>
+                               <a href="index.php?route=Dashboard&deUsId=<?php echo $app['user_id'] ;?>&deJbId=<?php echo $app['job_offer_id'] ;?>" ><img class="delet_user "  src="img/user-x.svg" alt="" style="margin:1rem;"></a>
+                           
                                 <button onclick="statusUpdate(<?php echo $app['user_id'] ;?>,<?php echo $app['job_offer_id'] ;?>)" style="background-color:green; color:white;" id="accept-btn">accept</button>
                             </td>
                         </tr>
